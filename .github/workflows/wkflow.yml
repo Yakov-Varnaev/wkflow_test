@@ -12,7 +12,8 @@ on:
 
 env:
   PR_BRANCH: ${{ github.event.pull_request.base.ref }}
-  PUSH_BRANCH: ${{ github.event.ref##*/ }}
+  PUSH_BRANCH: ${{ github.event.ref }}
+  OR_BRANCH: ${{ github.event.pull_request.base.ref || github.event.ref }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -36,5 +37,6 @@ jobs:
         
       - name: Push Branch
         run: echo "Push BRANCH - $PUSH_BRANCH"
-      - name: Env Branch
-        run: echo "Env var - ${GITHUB_REF##*/}"
+
+      - name: OR branch
+        run: echo "OR branch - $OR_BRANCH"
