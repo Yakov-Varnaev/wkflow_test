@@ -36,3 +36,5 @@ jobs:
         
       - name: Push Branch
         run: echo "Push BRANCH - $PUSH_BRANCH"
+      - name: Env Branch
+        run: echo "Env var - ${GITHUB_REF##*/}"
