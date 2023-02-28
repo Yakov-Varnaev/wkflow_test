@@ -12,7 +12,7 @@ on:
 
 env:
   PR_BRANCH: ${{ github.event.pull_request.base.ref }}
-  PUSH_BRANCH: ${{ github.event.base.ref }}
+  PUSH_BRANCH: ${{ github.event.base.push.ref }}
   OR_BRANCH: ${{ github.event.pull_request.base.ref || github.event.ref }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
